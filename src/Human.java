@@ -1,4 +1,4 @@
-public class Human {
+public abstract class Human {
     int age;
     String name;
     boolean isMale;
@@ -7,9 +7,6 @@ public class Human {
         this.age = age;
         this.name = name;
         this.isMale = isMale;
-    }
-
-    public Human() {
     }
 
     public int getAge() {
@@ -24,21 +21,11 @@ public class Human {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public boolean isMale() {
         return isMale;
     }
 
-    public void setMale(boolean male) {
-        isMale = male;
-    }
-
-    public String getRole() {
-        return "Human";
-    }
+    public abstract String getRole();
 
     public void introduce() {
         System.out.println("My name is " + name + ", I am " + age + " years old.");

@@ -1,42 +1,34 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+        Human h1 = new Employee(18, "Damir", true, "Engineer", 400000);
+        Human h2 = new Student(19, "Aruzhan", false, "IT", 3.8f, "AITU");
 
-        System.out.print("Enter age: ");
-        int age = scanner.nextInt();
+        Employee e1 = new Employee(28, "Ali", true, "HR", 350000);
+        Student s1 = new Student(20, "Dana", false, "Design", 3.4f, "SDU");
 
-        System.out.print("Is male (true/false): ");
-        boolean isMale = scanner.nextBoolean();
+        IWork worker = new Employee(40, "Serik", true, "Professor", 600000);
+        IStudy learner = new Student(18, "Amina", false, "Physics", 3.9f, "NU");
 
-        System.out.print("Enter position: ");
-        scanner.nextLine();
-        String position = scanner.nextLine();
+        h1.introduce();
+        System.out.println(h1.getRole());
 
-        System.out.print("Enter salary: ");
-        float salary = scanner.nextFloat();
+        h2.introduce();
+        System.out.println(h2.getRole());
 
-        Employee employee = new Employee(age, name, isMale, position, salary);
-        Student student = new Student(18, "Damir", true, "Media Technologies", 2.99F);
-        Human human = new Human(20, "Human", false);
+        e1.work();
+        System.out.println(e1.calculateBonus());
 
-        employee.introduce();
-        System.out.println(employee.getRole());
-        System.out.println(employee.getSalary());
+        s1.study();
+        System.out.println(s1.getProgress());
+        s1.showUniversity();
 
-        student.introduce();
-        System.out.println(student.getRole());
+        worker.work();
+        System.out.println(worker.calculateBonus());
 
-        human.introduce();
-        System.out.println(human.getRole());
+        learner.study();
+        System.out.println(learner.getProgress());
 
-        employee.setSalary(employee.getSalary() + 1);
-        System.out.println("Updated salary: " + employee.getSalary());
-
-        System.out.println("Total employees: " + Employee.employeeCount);
+        System.out.println(Employee.employeeCount);
     }
 }
